@@ -4,16 +4,16 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("BikeLoan")]
-    public class Bike 
+    public class Bike
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BikeID { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Distance { get; set; }
+        public byte[] BikeImage { get; set; }
+        public Users Users { get; set; }
+        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
 
-        public string BikeName { get; set; }
-
-        public string BikeColor { get; set; }
-
-        public double BikePrice { get; set; }
     }
 }

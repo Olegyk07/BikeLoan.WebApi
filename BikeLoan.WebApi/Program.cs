@@ -24,6 +24,18 @@ namespace SmartEnglish
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Register the Swagger or more Swagger documents
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "SwaggerDemoApplication",
+                    Version = "v1"
+                });
+            });
+            services.AddControllers();
+        }
     }
 
 }
